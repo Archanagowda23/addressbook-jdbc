@@ -20,6 +20,13 @@ public class AddressBookServiceTest {
         Assert.assertEquals(3, addressBookData.size());
     }
 
+    @Test
+    public void givenContactNumber_WhenUpdated_ShouldSyncWithDb() {
+        AddressBookService addressBookService = new AddressBookService();
+        addressBookService.updateContactNumber("pranav","11111111");
+        boolean result = addressBookService.checkAddressBookInSyncWithDB("pranav");
+        Assert.assertTrue(result);
+    }
 
 }
 
