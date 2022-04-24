@@ -27,8 +27,18 @@ public class AddressBookServiceTest {
         boolean result = addressBookService.checkAddressBookInSyncWithDB("pranav");
         Assert.assertTrue(result);
     }
-
+    @Test
+    public void givenDateRangeWhenRetrieved_ShouldMatchEntryCount() {
+        AddressBookService addressBookService = new AddressBookService();
+        LocalDate startDate = LocalDate.of(2017, 01, 01);
+        LocalDate endDate = LocalDate.now();
+        List<Person> addressBookDataList =
+                addressBookService.readAddressBookForDateRange(AddressBookService
+                        .IOService.DB_IO, startDate, endDate);
+        Assert.assertEquals(2, addressBookDataList.size());
+    }
 }
+
 
 
 
