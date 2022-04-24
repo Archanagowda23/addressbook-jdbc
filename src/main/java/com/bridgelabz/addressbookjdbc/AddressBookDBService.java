@@ -140,6 +140,7 @@ public class AddressBookDBService {
 
         //main
         public static void main(String[] args) {
+            System.out.println("welocme to address-book database");
             AddressBookDBService addressBookDBService = new AddressBookDBService();
             List<Person> dataList = addressBookDBService.readData();
             System.out.println(dataList);
